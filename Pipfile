@@ -9,6 +9,7 @@ pylint = "*"
 autopep8 = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
