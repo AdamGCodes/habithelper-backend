@@ -13,8 +13,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 from os import getenv
+from datetime import timedelta
 
 load_dotenv()
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=6),
+    "TOKEN_OBTAIN_SERIALIZER": "users.serializers.MyTokenObtainPairSerializer",
+}
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

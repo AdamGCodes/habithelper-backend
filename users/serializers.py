@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 #Model
 from django.contrib.auth import get_user_model, password_validation, hashers
@@ -31,3 +32,15 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         # Doing a few things but inclues specifying the set of fields we want used in this instance.
         fields = ('id', 'email', 'username', 'password', 'password_confirmation', 'first_name', 'last_name')
+
+
+# Customise the payload in the JWT It's going to be easier to hve access to the username throughout
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['username'] = user.username
+
+        return token
