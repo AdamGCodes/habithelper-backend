@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls'))# syntax of an include path is: `appname.filename`
+    path('users/', include('users.urls')),# syntax of an include path is: `appname.filename`
+    path('timers/', include('timers.urls'))
 ]
