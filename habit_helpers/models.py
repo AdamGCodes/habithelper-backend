@@ -1,6 +1,5 @@
 from django.db import models
 
-# ???????????????? Do I need to popopulate with user and call reference in the serializer?
 # Create your models here.
 class Habit_Helper(models.Model):
     name = models.CharField(max_length=100)
