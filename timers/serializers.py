@@ -5,4 +5,5 @@ from users.serializers import UserSerializer
 class TimerSerializer(ModelSerializer):
     class Meta:
         model = Timer
-        fields = ('name', 'reason', 'started', 'exceptions')
+        fields = ('id', 'name', 'reason', 'started', )
+        read_only_fields = ('user', 'created_at', 'updated_at') 

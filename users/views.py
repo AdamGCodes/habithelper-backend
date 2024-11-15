@@ -4,11 +4,13 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.db.models import Q
+from django.contrib.auth import get_user_model, hashers
+from django.contrib.auth.hashers import check_password
 
 from .serializers import UserSerializer
 from utils.exceptions import handle_exceptions
 
-from django.contrib.auth import get_user_model, hashers
+
 User = get_user_model()
 
 
@@ -29,14 +31,15 @@ class SignUpView(APIView):
 class SignInView(APIView):
     @handle_exceptions
     def post(self, request):
-        email = request.data.get('email')
+        username_or_email = request.data.get('username_or_email')
         password = request.data.get('password')
         
-        #Identify the user by email (why it's unique)
-        user = User.objects.get(email=email)
+        #Identify the user by email or username (why it's unique)
+        print(f"Searching for user with: {username_or_email}")
+        user = User.objects.get(Q(email__iexact = username_or_email) | Q(username__iexact = username_or_email))
 
         #Compare entered password and hashed stored password
-        if hashers.check_password(password, user.password):
+        if check_password(password, user.password):
             #Generate token
             token_pair = RefreshToken.for_user(user)
 
@@ -44,7 +47,8 @@ class SignInView(APIView):
 
             return Response({
                 'user': serialized_user.data,
-                'token' : str(token_pair.access_token)
+                'access token': str(token_pair.access_token),
+                'refresh token' : str(token_pair)
             })
     
         return Response({ ' detail' : 'Unauthorized'}, status.HTTP_401_UNAUTHORIZED)

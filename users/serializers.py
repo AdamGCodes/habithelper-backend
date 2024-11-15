@@ -34,7 +34,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'email', 'username', 'password', 'password_confirmation', 'first_name', 'last_name')
 
 
-# Customise the payload in the JWT It's going to be easier to hve access to the username throughout
+# Customise the payload in the JWT It's going to be easier to have access to the username throughout
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
