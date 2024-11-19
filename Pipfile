@@ -12,6 +12,7 @@ python-dotenv = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 django-models = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
