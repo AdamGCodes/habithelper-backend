@@ -27,12 +27,9 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if getenv('ENVIRONMENT') == 'production' else True
 
+ALLOWED_HOSTS = ['127.0.0.1', 'habithelper-backend-0505932a9284.herokuapp.com','localhost']
 
-ALLOWED_HOSTS = []
-
-ALLOWED_HOSTS = ['127.0.0.1', 'habithelper-backend-0505932a9284.herokuapp.com']
-
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://127.0.0.1:5173']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://habithelper-backend-0505932a9284.herokuapp.com'

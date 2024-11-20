@@ -1,0 +1,42 @@
+[
+{
+  "model": "journals.journal",
+  "pk": 1,
+  "fields": {
+    "text": "My first journal",
+    "author": 7,
+    "created_at": "2024-11-15T16:26:55.166Z",
+    "updated_at": "2024-11-15T16:26:55.166Z"
+  }
+},
+{
+  "model": "journals.journal",
+  "pk": 2,
+  "fields": {
+    "text": "A second journal",
+    "author": 7,
+    "created_at": "2024-11-15T20:03:15.339Z",
+    "updated_at": "2024-11-15T20:03:15.339Z"
+  }
+},
+{
+  "model": "journals.journal",
+  "pk": 3,
+  "fields": {
+    "text": "That journal I was going to update, well I just updated it. See?",
+    "author": 7,
+    "created_at": "2024-11-15T20:03:35.539Z",
+    "updated_at": "2024-11-15T20:22:48.440Z"
+  }
+},
+{
+  "model": "journals.journal",
+  "pk": 7,
+  "fields": {
+    "text": "Even further updates.",
+    "author": 3,
+    "created_at": "2024-11-19T11:46:04.137Z",
+    "updated_at": "2024-11-19T20:11:40.165Z"
+  }
+}
+]
