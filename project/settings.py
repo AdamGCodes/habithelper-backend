@@ -6,8 +6,6 @@ from datetime import timedelta
 
 load_dotenv()
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173", "https://myhabithelper.netlify.app"]
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(hours=6),
     "TOKEN_OBTAIN_SERIALIZER": "users.serializers.MyTokenObtainPairSerializer",
@@ -29,10 +27,13 @@ DEBUG = False if getenv('ENVIRONMENT') == 'production' else True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'habithelper-backend-0505932a9284.herokuapp.com','localhost']
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://127.0.0.1:5173']
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173', 
+    'https://myhabithelper.netlify.app',]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://habithelper-backend-0505932a9284.herokuapp.com', 'https://myhabithelper.netlify.app'
+    'https://habithelper-backend-0505932a9284.herokuapp.com', 
+    'https://myhabithelper.netlify.app',
 ]
 
 
