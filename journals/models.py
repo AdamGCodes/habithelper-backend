@@ -9,5 +9,6 @@ class Journal(models.Model):
         related_name='user_journals',
         on_delete=models.CASCADE
     )
+    entry_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
